@@ -1,7 +1,6 @@
-#include <stdio.h>
-#include <cstdlib>
-#include <cctype>
 #include "infixpostfix.h"
+#include "tree.h"
+
 void infixpostfixlab(){
     postfixer p;
     postfixer p2;
@@ -15,9 +14,14 @@ void infixpostfixlab(){
 }
 
 
-int main()
-{
+int main(){
+tree dummy_t{};
+int A[5]={10,5,7,3,1};
 
+if(dummy_t.Maxheap(A,5))
+    std::cout<<"A is a maxheap"<<endl;
+else
+    std::cout<<"A is not a maxheap"<<endl;
 
 return 0;
 }
