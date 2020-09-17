@@ -1,12 +1,11 @@
 //
 // Created by Danish Khan on 9/15/2020.
 //
+#ifndef CMPE130_TREE_H
+#define CMPE130_TREE_H
 #include <iostream>
 #include <cstdio>
 using namespace std;
-#ifndef CMPE130_TREE_H
-#define CMPE130_TREE_H
-
 
 class tree {//dummy tree
 public:

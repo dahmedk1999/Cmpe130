@@ -1,5 +1,6 @@
 #include "infixpostfix.h"
 #include "tree.h"
+#include "sorts.h"
 
 void infixpostfixlab(){
     postfixer p;
@@ -13,15 +14,18 @@ void infixpostfixlab(){
     p3.parser(infix);
 }
 
-
+#define size 7
 int main(){
 tree dummy_t{};
-int A[5]={10,5,7,3,1};
+int A[size]={30,10,100,5,7,9,2};
 
-if(dummy_t.Maxheap(A,5))
+if(dummy_t.Maxheap(A, size))
     std::cout<<"A is a maxheap"<<endl;
 else
     std::cout<<"A is not a maxheap"<<endl;
 
+heapsort(A,size);
+for(int i=0;i<size;i++)
+    cout<<A[i]<<' ';
 return 0;
 }
