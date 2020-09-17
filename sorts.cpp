@@ -3,6 +3,7 @@
 //
 #include "sorts.h"
 
+
 void swap(int* first, int* second){
     int temp = *first;
     *first=*second;
@@ -34,6 +35,33 @@ if (l<h){
 }
 }
 
+void heapify(int A[], int n, int i) {
+    int root = i;
+    int left = 2*i;
+    int right= 2*i+1;
+    if (left < n && A[left] < A[root])
+        root= left;
+    if (right < n && A[right] < A[root])
+        root = right;
+
+    if (root != i) {
+        swap(A,i,root);
+        heapify(A, n, root);
+    }
+
+}
+
+void heapsort(int A[],int size) {
+    for (int i =size/2-1;i>=0;i--)
+        heapify(A,size,i);
+
+    for(int i=size-1;i>0;i--)
+    {
+        swap(A,0,i);
+        heapify(A,i,0);
+    }
+}
+
 void merge(int arr[], int l, int m, int r)
 {
     int i, j, k, n1, n2;
@@ -47,7 +75,7 @@ void merge(int arr[], int l, int m, int r)
         L_subarray[i] = arr[l + i];
     for (j = 0; j < n2; j++)
         R_subarray[j] = arr[m + 1 + j];
-i=j=0;k=l;
+    i=j=0;k=l;
     while (i < n1 && j < n2) {
         if (L_subarray[i] <= R_subarray[j]) {
             arr[k] = L_subarray[i];
@@ -59,42 +87,15 @@ i=j=0;k=l;
         }
         k++;
     }
-   while (i < n1) {//copy left subarray
-       arr[k] = L_subarray[i];
-       i++;
-       k++;
-   }
-   while (j < n2) {//copy left subarray
-       arr[k] = R_subarray[j];
-       j++;
-       k++;
-   }
-}
-
-void heapify(int A[], int b, int i) {
-    int root = i;
-    int left = 2*i +1;
-    int right = 2*i + 2;
-    if (left < b && A[left] > A[root])
-        root= left;
-    if (right < b && A[right] > A[root])
-        root = right;
-    if (root != i) {
-        swap(&A[i], &A[root]);
-
-        heapify(A, b, root);
+    while (i < n1) {//copy left subarray
+        arr[k] = L_subarray[i];
+        i++;
+        k++;
     }
-
-}
-
-void heapsort(int *A,int size) {
-    for (int i =(size-1)/2-1;i>=0;i--)
-        heapify(A,size-1,i);
-
-    for(int i=size-2;i>0;i--)
-    {
-        swap(&A[0],&A[i]);
-        heapify(A,i,0);
+    while (j < n2) {//copy left subarray
+        arr[k] = R_subarray[j];
+        j++;
+        k++;
     }
 }
 
@@ -109,4 +110,28 @@ void mergeSort(int arr[], int l, int r)
 
     merge(arr, l, m, r);
     }
+}
+
+void cust_isheap(tree t,int A[]){
+if(t.Maxheap(A, sizeof(A)))
+    std::cout<<"\nA is a maxheap"<<endl;
+else if (t.minheap(A, sizeof(A)))
+    std::cout<<"\nA is a mixheap"<<endl;
+else std::cout<<"\nA is not a heap"<<endl;
+}
+
+void heapify_min(int *A, int n, int i) {
+    int root = i;
+    int left = 2*i+1;
+    int right= 2*i+2;
+    if (left < n && A[left] < A[root])
+        root= left;
+    if (right < n && A[right] < A[root])
+        root = right;
+
+    if (root != i) {
+        swap(A,i,root);
+        heapify(A, n, root);
+    }
+
 }

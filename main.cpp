@@ -14,18 +14,21 @@ void infixpostfixlab(){
     p3.parser(infix);
 }
 
-#define size 7
+#define size 10
 int main(){
 tree dummy_t{};
-int A[size]={30,10,100,5,7,9,2};
-
-if(dummy_t.Maxheap(A, size))
-    std::cout<<"A is a maxheap"<<endl;
-else
-    std::cout<<"A is not a maxheap"<<endl;
+int A[size]={1,20,3,5,6,7,9,20,23,55};
+for(int i : A)
+    cout<<i<<' ';
+cust_isheap(dummy_t,A);
 
 heapsort(A,size);
-for(int i=0;i<size;i++)
-    cout<<A[i]<<' ';
+for(int i : A)
+    cout<<i<<' ';
+cust_isheap(dummy_t,A);
+
+mergeSort(A,0,size-1);
+for(int i : A)
+cout<<i<<' ';
 return 0;
 }
