@@ -4,7 +4,7 @@
 #ifndef CMPE130_SORTS_H
 #define CMPE130_SORTS_H
 
-#include "tree.h"
+#include "faketree.h"
 
 void swap(int* first, int* second);
 void swap(int A[],int first, int second);
@@ -15,6 +15,6 @@ void mergeSort(int A[],int l, int h);
 void heapsort(int A[],int size);
 void heapify(int A[], int n, int i);
 void heapify_min(int A[], int n, int i);
-void cust_isheap(tree t,int A[]);
+void cust_isheap(faketree t, int A[]);
 
 #endif //CMPE130_SORTS_H

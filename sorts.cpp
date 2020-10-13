@@ -112,7 +112,7 @@ void mergeSort(int arr[], int l, int r)
     }
 }
 
-void cust_isheap(tree t,int A[]){
+void cust_isheap(faketree t, int A[]){
 if(t.Maxheap(A, sizeof(A)))
     std::cout<<"\nA is a maxheap"<<endl;
 else if (t.minheap(A, sizeof(A)))
