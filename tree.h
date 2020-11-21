@@ -26,6 +26,7 @@ public:
     class tree {
         node *root;
         int tree_size;
+        double cost;
     public:
         tree();
         tree(const tree& copy);
@@ -43,7 +44,6 @@ public:
         unsigned depth();
         void print();
 
-        tree& operator=(tree rhs);
         friend std::ostream& operator<<(std::ostream& stream, tree& RHS);
 
 

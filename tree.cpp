@@ -101,6 +101,7 @@
             insert_helper_freq(temp->right,value);
 
     }
+
     void tree::insert(int value)
     {
         auto temp= root;
@@ -108,14 +109,17 @@
             auto temp1 = new node(value);
             root=temp1;
             tree_size++;
+            cost+=value;
         }
         else if (in_tree(value))
         {
+            cost+=value;
             tree_size++;
             insert_helper_freq(temp,value);
         }
         else
         {
+            cost+=value;
             node_insert(temp, value);
             tree_size++;
         }
@@ -238,7 +242,9 @@
     void tree::print()
     {
         node_print_ltg(root);
+
         std::cout<<"\n";
+        std::cout<<"Total Cost= "<<cost<<std::endl;
     }
 
     std::ostream &operator<<(std::ostream &stream, tree &RHS)

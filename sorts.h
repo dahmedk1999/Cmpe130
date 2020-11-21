@@ -6,7 +6,7 @@
 
 #include "faketree.h"
 
-void swap(int* first, int* second);
+void swapqs(int* first, int* second);
 void swap(int A[],int first, int second);
 void quicksort(int A[], int l, int h);
 int partition (int A[], int l, int h);

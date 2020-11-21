@@ -4,27 +4,32 @@
 #include "sorts.h"
 
 
-void swap(int* first, int* second){
-    int temp = *first;
-    *first=*second;
-    *second=*first;
-}
+
 void swap(int A[],int first, int second) {
     int temp = A[first];
     A[first] = A[second];
     A[second] = temp;
 }
-int partition (int A[], int l, int h){
-int pivot=A[h];
-int i=l-1;
-for(int j = l; j<=h-1; j++)
-    if(A[j]<=pivot)
+
+void swapqs(int* first, int* second){
+    int temp = *first;
+    *first=*second;
+    *second=temp;
+}
+int partition (int A[], int l, int h)
+{
+    int pivot=A[h];
+    int i=(l-1);
+
+    for(int j = l; j<=h-1; j++)
     {
-        i++;
-        swap(&A[i],&A[j]);
+        if (A[j] < pivot) {
+            i++;
+            swapqs(&A[i], &A[j]);
+        }
     }
-swap(&A[i+1],&A[h]);
-    return i+1;
+    swapqs(&A[i+1],&A[h]);
+    return (i+1);
 }
 
 void quicksort(int A[], int l, int h){
@@ -135,3 +140,4 @@ void heapify_min(int *A, int n, int i) {
     }
 
 }
+

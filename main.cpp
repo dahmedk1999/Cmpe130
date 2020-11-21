@@ -4,6 +4,7 @@
 #include <string>
 #include <chrono>
 #include "tree.h"
+#include "redblack.h"
 #define SIZE 10
 void infixpostfixlab(){
     postfixer p;
@@ -65,13 +66,37 @@ void treelab(){
     newtree.insert(50);
     newtree.insert(40);
     newtree.insert(20);
-    newtree.printPreorder(newtree.getroot());
+    //newtree.printPreorder(newtree.getroot());
+    newtree.print();
     cout<<endl;
 }
+void redblack(){
+    int A[]={100, 200, 150, 170, 165, 180, 220, 163, 164};
+    int N = sizeof(A) / sizeof(A[0]);
+    quicksort(A, 0, N - 1);
+    for(int i=0;i<N;i++)
+        cout<<A[i]<<endl;
 
+
+
+    RBTree bst;
+    bst.insert(100);
+    bst.insert(200);
+    bst.insert(150);
+    bst.insert(170);
+    bst.insert(165);
+    bst.insert(180);
+    bst.insert(220);
+    bst.insert(163);
+    bst.insert(164);
+
+    bst.preorder();
+
+}
 
 
 int main(){
 
-return 0;
+
+    return 0;
 }
