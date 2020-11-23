@@ -38,7 +38,7 @@ private :
 
     int totsize;
     int setnum;
-    int *tracker_maze;
+    int *child_maze;
     int *main_maze;
 };
 

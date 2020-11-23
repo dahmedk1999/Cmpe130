@@ -22,10 +22,10 @@ Maze::Maze(int size) {
     mazeSize = int(pow(mazeSizeN, 2));
     disjoint_set = new disjointSet(mazeSize);
     maze_wall_status = new int[mazeSize];
-    maze_wall_status[0] = 11;
-    maze_wall_status[mazeSize - 1] = 14;
+    maze_wall_status[0] = 11;//B
+    maze_wall_status[mazeSize - 1] = 14;//E
     for (int i = 1; i < mazeSize - 1; i++)
-        maze_wall_status[i] = 0xF;
+        maze_wall_status[i] = 15;//F
     indexArray = new int[mazeSize];
     for (int i = 0; i < mazeSize; i++)
         indexArray[i] = i;
@@ -51,12 +51,9 @@ void Maze::printMaze() {
 void Maze::render() {
     randomizeIndices();
     int i = 0;
-    while (disjoint_set->getNumSets() > 1) {
+    while (disjoint_set->getNumSets() > 1 && i <mazeSize) {
         clearWall(indexArray[i]);
-        i++;
-        if (i == mazeSize) {
-            i = 0;
-        }
+        ++i;
     }
     //never reaches here!
 }
@@ -86,9 +83,9 @@ int Maze::make_Wall(int index) {
 
 int Maze::adjacent(int num, int wall_side) {
     if (wall_side == right)
-        return (num++);
+        return (num+1);
     if (wall_side == left)
-        return (num--);
+        return (num-1);
     if (wall_side == top)
         return (num - mazeSizeN);
     if (wall_side == bottom)
@@ -113,6 +110,7 @@ int Maze::check_opposite_wall(int wall_side) {
 }
 
 void Maze::randomizeIndices() {
+    srand(time(0));
     int random_index_num;
     for (int i = 0; i < mazeSize; i++) {
         random_index_num = rand() % mazeSize;

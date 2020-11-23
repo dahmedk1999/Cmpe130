@@ -1,16 +1,15 @@
+//#include <chrono>
 //#include "infixpostfix.h"
 //#include "faketree.h"
 //#include "sorts.h"
-#include <string>
-//#include <chrono>
+
 //#include "tree.h"
 //#include "redblack.h"
 //#include "disjoint.h"
-#include <ctime>
 #include "disjoint.h"
 #include "maze.h"
 
-#define SIZE 4
+#define SIZE 30
 
 //void infixpostfixlab() {
 //    postfixer p;
@@ -107,7 +106,6 @@ void mazeprint() {
 }
 
 int main(){
-    srand(time(NULL));
     mazeprint();
 
     return 0;
